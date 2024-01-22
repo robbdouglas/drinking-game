@@ -2,7 +2,12 @@
 
 ## Name Brainstorming
 
-- Wahrheit oder dicht
+- Drinkopoly
+- Zum Saufen Reichts
+- Wahrheit oder Dicht
+- Sauf Bingo
+- Schluck mit Lustig
+- Tick Tack Sauf
 
 ## Structure
 
