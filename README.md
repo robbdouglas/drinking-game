@@ -7,7 +7,7 @@
 - Wahrheit oder Dicht
 - Sauf Bingo
 - Schluck mit Lustig
-- Tick Tack Sauf
+- Tick Tack Suff
 
 ## Structure
 
@@ -17,7 +17,7 @@
 - Task Page (Task, Done Button)
 - Game Page (It's your turn {name}, Category [Truth, Dare, Drink light, Drink hard, Flirty, Random...]) 
 ...(Repeat)
-- End Screen (Restart Button / Back to Start Button)
+- Game End Screen (Restart Button / Back to Start Button)
 
 ## Branches
 
