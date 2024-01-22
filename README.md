@@ -13,3 +13,12 @@
 - Game Page (It's your turn {name}, Category [Truth, Dare, Drink light, Drink hard, Flirty, Random...]) 
 ...(Repeat)
 - End Screen (Restart Button / Back to Start Button)
+
+## Branches
+
+- feature/categories
+- feature/game-end-screen
+- feature/landing-page
+- feature/players-settings
+- feature/task
+- main
