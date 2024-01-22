@@ -25,5 +25,5 @@
 - feature/game-end-screen
 - feature/landing-page
 - feature/players-settings
-- feature/task
+- feature/taskgit
 - main
