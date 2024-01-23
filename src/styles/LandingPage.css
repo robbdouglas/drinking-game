@@ -1,5 +1,9 @@
+.toggle-rules-btn-container {
+  margin-top: 30px;
+}
+
 .settings-btn {
-    position: absolute;
-    left: 20px;
-    bottom: 20px;
-  }
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+}
