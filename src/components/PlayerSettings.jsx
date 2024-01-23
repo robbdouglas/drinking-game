@@ -9,6 +9,7 @@ function PlayerSettings() {
   const [drinkerInputs, setDrinkerInputs] = useState([]);
   const [nonDrinkerInputs, setNonDrinkerInputs] = useState([]);
   const [maxPlayersReached, setMaxPlayersReached] = useState(true);
+  const [showMaxPlayersMessage, setShowMaxPlayersMessage] = useState(false);
 
   const handleBackToHomeButtonClick = () => {
     navigate("/");
@@ -73,6 +74,7 @@ function PlayerSettings() {
       ]);
     } else {
       setMaxPlayersReached(true);
+      setShowMaxPlayersMessage(true);
     }
   };
 
@@ -88,6 +90,7 @@ function PlayerSettings() {
       drinkerInputs.length + nonDrinkerInputs.length === 8
     ) {
       setMaxPlayersReached(false);
+      setShowMaxPlayersMessage(false);
     }
   };
 
@@ -148,6 +151,12 @@ function PlayerSettings() {
           {drinkerInputs.length + nonDrinkerInputs.length === 0
             ? "Bitte füge mindestens einen Spieler hinzu"
             : "Jedem Spieler muss ein Name zugewiesen werden!"}
+        </p>
+      )}
+      {showMaxPlayersMessage && (
+        <p>
+          Die maximale Spielerzahl beträgt 8. Du kannst keinen weiteren Spieler
+          hinzufügen!
         </p>
       )}
       <button
