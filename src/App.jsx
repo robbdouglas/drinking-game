@@ -1,10 +1,10 @@
 import "./styles/App.css";
-import PlayerSettings from "./components/PlayerSettings";
+import Task from "./components/Task";
 
 function App() {
   return (
     <>
-      <PlayerSettings />
+      <Task />
     </>
   );
 }

@@ -1,0 +1,51 @@
+.task-counter-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.task-counter {
+  font-size: 24px;
+  font-weight: 500;
+  color: #646cff;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+}
+
+.task {
+  font-size: 36px;
+}
+
+.task-completed-btn {
+  font-size: 30px;
+}
+
+.settings-btn {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+}
+
+.reroll-task {
+  position: absolute;
+  left: 200px;
+  bottom: 20px;
+}
+.reroll-counter {
+  border: 1px solid white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 20px;
+  left: 420px;
+}
+
+.finish-game {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
