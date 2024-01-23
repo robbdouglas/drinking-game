@@ -1,3 +1,9 @@
 th h2 {
     margin: 20px 100px;
 }
+
+.back-to-home {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}

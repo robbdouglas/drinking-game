@@ -1,3 +1,7 @@
+// Categories.jsx
+
+import "../styles/Categories.css"; 
+
 function Categories() {
   return (
     <div>
@@ -19,7 +23,8 @@ function Categories() {
           <li style={{ marginRight: "100px" }}>.</li>
           <li>.</li>
         </ul>
-        <button>Menü</button>
+        <button className="settings-btn">Menü</button>
+
         <button>End Game</button>
       </section>
     </div>

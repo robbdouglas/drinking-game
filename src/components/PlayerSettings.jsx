@@ -1,8 +1,14 @@
 // PlayerSettings.jsx
 
 import "../styles/PlayerSettings.css";
+import { useNavigate } from "react-router-dom";
 
 function PlayerSettings() {
+  const navigate = useNavigate();
+
+  const handleStartButtonClick = () => {
+    navigate("/");
+  };
   return (
     <div>
       <table>
@@ -25,6 +31,9 @@ function PlayerSettings() {
       </table>
       <button>START GAME</button>
       <button>Menü</button>
+      <button className="back-to-home" onClick={handleStartButtonClick}>
+        Zurück zur Startseite
+      </button>
     </div>
   );
 }

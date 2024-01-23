@@ -1,6 +1,7 @@
 // LandingPage.jsx
 
 import { Link, useNavigate } from "react-router-dom";
+import "../styles/LandingPage.css";
 
 function LandingPage() {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ function LandingPage() {
         <li>...</li>
         <li>...</li>
       </ul>
-      <button>Menü</button>
+      <button className="settings-btn">Menü</button>
     </div>
   );
 }
