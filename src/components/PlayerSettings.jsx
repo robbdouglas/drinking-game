@@ -9,6 +9,12 @@ function PlayerSettings() {
   const handleStartButtonClick = () => {
     navigate("/");
   };
+
+  const handleStartGameButtonClick = () => {
+    // Hier kannst du zusätzliche Logik hinzufügen, bevor zur PlayerSettings-Seite navigiert wird
+    navigate("/categories");
+  };
+
   return (
     <div>
       <table>
@@ -29,7 +35,7 @@ function PlayerSettings() {
           </td>
         </tr>
       </table>
-      <button>START GAME</button>
+      <button onClick={handleStartGameButtonClick}>START GAME</button>
       <button>Menü</button>
       <button className="back-to-home" onClick={handleStartButtonClick}>
         Zurück zur Startseite

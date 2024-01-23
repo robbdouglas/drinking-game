@@ -1,6 +1,6 @@
 // Categories.jsx
 
-import "../styles/Categories.css"; 
+import "../styles/Categories.css";
 
 function Categories() {
   return (
