@@ -29,8 +29,13 @@ function PlayerSettings() {
     if (!hasInputs || !allFieldsFilled) {
       setMaxPlayersReached(true);
     } else {
+      // Zufälligen Spieler auswählen
+      const allPlayers = [...drinkerInputs, ...nonDrinkerInputs];
+      const randomPlayer =
+        allPlayers[Math.floor(Math.random() * allPlayers.length)];
+
       // Hier kannst du zusätzliche Logik hinzufügen, bevor zur PlayerSettings-Seite navigiert wird
-      navigate("/categories");
+      navigate("/categories", { state: { randomPlayer: randomPlayer.value } });
     }
   };
 

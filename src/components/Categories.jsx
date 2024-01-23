@@ -1,10 +1,12 @@
 // Categories.jsx
 
 import "../styles/Categories.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function Categories() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const randomPlayer = location.state && location.state.randomPlayer;
 
   const handleBacktoPlayerSettingsButtonClick = () => {
     navigate("/player-settings");
@@ -13,7 +15,7 @@ function Categories() {
   return (
     <div>
       <h3>Its your turn</h3>
-      <h1>Player</h1>
+      {randomPlayer && <h1>{randomPlayer}</h1>}
       <section>
         <ul
           style={{
