@@ -8,40 +8,53 @@ function PlayerSettings() {
   const navigate = useNavigate();
   const [drinkerInputs, setDrinkerInputs] = useState([]);
   const [nonDrinkerInputs, setNonDrinkerInputs] = useState([]);
-  const [maxPlayersReached, setMaxPlayersReached] = useState(false);
+  const [maxPlayersReached, setMaxPlayersReached] = useState(true);
 
   const handleBackToHomeButtonClick = () => {
     navigate("/");
   };
 
   const handleStartGameButtonClick = () => {
-    // Hier kannst du zusätzliche Logik hinzufügen, bevor zur PlayerSettings-Seite navigiert wird
-    navigate("/categories");
-  };
+    setMaxPlayersReached(false);
 
-  const handleAddDrinkerButtonClick = () => {
-    if (drinkerInputs.length + nonDrinkerInputs.length < 8) {
-      setDrinkerInputs((prevInputs) => [
-        ...prevInputs,
-        {
-          id: prevInputs.length,
-          input: (
-            <input
-              key={prevInputs.length}
-              type="text"
-              placeholder="Gib deinen Namen ein..."
-            />
-          ),
-        },
-      ]);
-    } else {
+    // Überprüfe, ob mindestens ein Inputfeld vorhanden ist
+    const hasInputs = drinkerInputs.length > 0 || nonDrinkerInputs.length > 0;
+
+    // Überprüfe, ob alle Inputfelder ausgefüllt sind
+    const allFieldsFilled =
+      drinkerInputs.every((inputObj) => inputObj.value.trim() !== "") &&
+      nonDrinkerInputs.every((inputObj) => inputObj.value.trim() !== "");
+
+    if (!hasInputs || !allFieldsFilled) {
       setMaxPlayersReached(true);
+    } else {
+      // Hier kannst du zusätzliche Logik hinzufügen, bevor zur PlayerSettings-Seite navigiert wird
+      navigate("/categories");
     }
   };
 
-  const handleAddNonDrinkerButtonClick = () => {
+  const handleInputChange = (inputType, id, value) => {
+    if (inputType === "drinker") {
+      setDrinkerInputs((prevInputs) =>
+        prevInputs.map((input) =>
+          input.id === id ? { ...input, value } : input
+        )
+      );
+    } else if (inputType === "nonDrinker") {
+      setNonDrinkerInputs((prevInputs) =>
+        prevInputs.map((input) =>
+          input.id === id ? { ...input, value } : input
+        )
+      );
+    }
+  };
+
+  const handleAddInput = (inputType) => {
+    const setInputs =
+      inputType === "drinker" ? setDrinkerInputs : setNonDrinkerInputs;
+
     if (drinkerInputs.length + nonDrinkerInputs.length < 8) {
-      setNonDrinkerInputs((prevInputs) => [
+      setInputs((prevInputs) => [
         ...prevInputs,
         {
           id: prevInputs.length,
@@ -50,8 +63,12 @@ function PlayerSettings() {
               key={prevInputs.length}
               type="text"
               placeholder="Gib deinen Namen ein..."
+              onChange={(e) =>
+                handleInputChange(inputType, prevInputs.length, e.target.value)
+              }
             />
           ),
+          value: "", // Initialer Wert ist leer
         },
       ]);
     } else {
@@ -60,15 +77,10 @@ function PlayerSettings() {
   };
 
   const handleRemoveInput = (inputType, id) => {
-    if (inputType === "drinker") {
-      setDrinkerInputs((prevInputs) =>
-        prevInputs.filter((input) => input.id !== id)
-      );
-    } else if (inputType === "nonDrinker") {
-      setNonDrinkerInputs((prevInputs) =>
-        prevInputs.filter((input) => input.id !== id)
-      );
-    }
+    const setInputs =
+      inputType === "drinker" ? setDrinkerInputs : setNonDrinkerInputs;
+
+    setInputs((prevInputs) => prevInputs.filter((input) => input.id !== id));
 
     // Überprüfe, ob die Anzahl der Inputfelder genau 8 beträgt
     if (
@@ -94,7 +106,7 @@ function PlayerSettings() {
           <td>
             <button
               className="add-drinker-btn"
-              onClick={handleAddDrinkerButtonClick}
+              onClick={() => handleAddInput("drinker")}
             >
               +
             </button>
@@ -113,7 +125,7 @@ function PlayerSettings() {
           <td>
             <button
               className="add-non-drinker-driver-btn"
-              onClick={handleAddNonDrinkerButtonClick}
+              onClick={() => handleAddInput("nonDrinker")}
             >
               +
             </button>
@@ -131,12 +143,26 @@ function PlayerSettings() {
           </td>
         </tr>
       </table>
-      {maxPlayersReached &&
-        drinkerInputs.length + nonDrinkerInputs.length === 8 && (
-          <p>Die maximale Spielerzahl beträgt 8 Spieler!</p>
-        )}
-      <button onClick={handleStartGameButtonClick}>SPIEL STARTEN</button>
-      <button>Menü</button>
+      {maxPlayersReached && (
+        <p>
+          {drinkerInputs.length + nonDrinkerInputs.length === 0
+            ? "Bitte füge mindestens einen Spieler hinzu"
+            : "Jedem Spieler muss ein Name zugewiesen werden!"}
+        </p>
+      )}
+      <button
+        onClick={handleStartGameButtonClick}
+        disabled={
+          !(drinkerInputs.length > 0 || nonDrinkerInputs.length > 0) ||
+          !(
+            drinkerInputs.every((input) => input.value.trim() !== "") &&
+            nonDrinkerInputs.every((input) => input.value.trim() !== "")
+          )
+        }
+      >
+        SPIEL STARTEN
+      </button>
+      <button className="settings-btn">Menü</button>
       <button className="back-to-home" onClick={handleBackToHomeButtonClick}>
         Zurück zur Startseite
       </button>
