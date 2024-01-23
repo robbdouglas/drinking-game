@@ -35,7 +35,7 @@ function PlayerSettings() {
           </td>
         </tr>
       </table>
-      <button onClick={handleStartGameButtonClick}>START GAME</button>
+      <button onClick={handleStartGameButtonClick}>SPIEL STARTEN</button>
       <button>Menü</button>
       <button className="back-to-home" onClick={handleBackToHomeButtonClick}>
         Zurück zur Startseite
