@@ -35,7 +35,7 @@ function Categories() {
           className="back-to-home"
           onClick={handleBacktoPlayerSettingsButtonClick}
         >
-          Zurück zu den Spielern
+          Zurück zur Spielerübersicht
         </button>
 
         <button>End Game</button>
