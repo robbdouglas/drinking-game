@@ -17,21 +17,14 @@ function Categories() {
       <h3>Du bist dran</h3>
       {randomPlayer && <h1>{randomPlayer}</h1>}
       <section>
-        <ul
-          style={{
-            listStyleType: "none",
-            padding: 0,
-            display: "flex",
-            flexDirection: "row",
-          }}
-        >
-          <li style={{ marginRight: "100px" }}>.</li>
-          <li style={{ marginRight: "100px" }}>.</li>
-          <li style={{ marginRight: "100px" }}>.</li>
-          <li style={{ marginRight: "100px" }}>.</li>
-          <li style={{ marginRight: "100px" }}>.</li>
-          <li>.</li>
-        </ul>
+        <button className="category-button">Saufen</button>
+        <button className="category-button">Hart Saufen</button>
+        <button className="category-button">
+          Exen (Achtung, du könntest verrecken)
+        </button>
+        <button className="category-button">Wahrheit</button>
+        <button className="category-button">Pflicht</button>
+        <button className="category-button">Sexy</button>
         <button className="settings-btn">Menü</button>
         <button className="back-to-home" onClick={handleBackToHomeButtonClick}>
           End Game
