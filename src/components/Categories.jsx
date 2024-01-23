@@ -1,8 +1,15 @@
 // Categories.jsx
 
 import "../styles/Categories.css";
+import { useNavigate } from "react-router-dom";
 
 function Categories() {
+  const navigate = useNavigate();
+
+  const handleBacktoPlayerSettingsButtonClick = () => {
+    navigate("/player-settings");
+  };
+
   return (
     <div>
       <h3>Its your turn</h3>
@@ -24,10 +31,17 @@ function Categories() {
           <li>.</li>
         </ul>
         <button className="settings-btn">Menü</button>
+        <button
+          className="back-to-home"
+          onClick={handleBacktoPlayerSettingsButtonClick}
+        >
+          Zurück zu den Spielern
+        </button>
 
         <button>End Game</button>
       </section>
     </div>
   );
 }
+
 export default Categories;

@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 function PlayerSettings() {
   const navigate = useNavigate();
 
-  const handleStartButtonClick = () => {
+  const handleBackToHomeButtonClick = () => {
     navigate("/");
   };
 
@@ -37,7 +37,7 @@ function PlayerSettings() {
       </table>
       <button onClick={handleStartGameButtonClick}>START GAME</button>
       <button>Menü</button>
-      <button className="back-to-home" onClick={handleStartButtonClick}>
+      <button className="back-to-home" onClick={handleBackToHomeButtonClick}>
         Zurück zur Startseite
       </button>
     </div>
