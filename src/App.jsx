@@ -1,10 +1,10 @@
-import "./App.css";
-import LandingPage from "./components/LandingPage";
+import "./styles/App.css";
+import PlayerSettings from "./components/PlayerSettings";
 
 function App() {
   return (
     <>
-      <LandingPage />
+      <PlayerSettings />
     </>
   );
 }
