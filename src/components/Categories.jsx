@@ -37,7 +37,7 @@ function Categories() {
           className="category-button"
           onClick={() => handleCategoryButtonClick("Exen")}
         >
-          Exen (Achtung, du könntest verrecken)
+          Exen
         </button>
         <button
           className="category-button"
