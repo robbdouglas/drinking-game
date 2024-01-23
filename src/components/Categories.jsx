@@ -8,8 +8,8 @@ function Categories() {
   const location = useLocation();
   const randomPlayer = location.state && location.state.randomPlayer;
 
-  const handleBacktoPlayerSettingsButtonClick = () => {
-    navigate("/player-settings");
+  const handleBackToHomeButtonClick = () => {
+    navigate("/");
   };
 
   return (
@@ -33,14 +33,9 @@ function Categories() {
           <li>.</li>
         </ul>
         <button className="settings-btn">Menü</button>
-        <button
-          className="back-to-home"
-          onClick={handleBacktoPlayerSettingsButtonClick}
-        >
-          Zurück zur Spielerübersicht
+        <button className="back-to-home" onClick={handleBackToHomeButtonClick}>
+          End Game
         </button>
-
-        <button>End Game</button>
       </section>
     </div>
   );
