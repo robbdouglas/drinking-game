@@ -14,7 +14,7 @@ function Categories() {
 
   return (
     <div>
-      <h3>Its your turn</h3>
+      <h3>Du bist dran</h3>
       {randomPlayer && <h1>{randomPlayer}</h1>}
       <section>
         <ul
