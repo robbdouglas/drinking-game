@@ -12,19 +12,51 @@ function Categories() {
     navigate("/");
   };
 
+  const handleCategoryButtonClick = (category) => {
+    navigate("/task", { state: { randomPlayer, category } });
+  };
+
   return (
     <div>
       <h3>Du bist dran</h3>
       {randomPlayer && <h1>{randomPlayer}</h1>}
       <section>
-        <button className="category-button">Saufen</button>
-        <button className="category-button">Hart Saufen</button>
-        <button className="category-button">
+        <button
+          className="category-button"
+          onClick={() => handleCategoryButtonClick("Saufen")}
+        >
+          Saufen
+        </button>
+        <button
+          className="category-button"
+          onClick={() => handleCategoryButtonClick("Hart Saufen")}
+        >
+          Hart Saufen
+        </button>
+        <button
+          className="category-button"
+          onClick={() => handleCategoryButtonClick("Exen")}
+        >
           Exen (Achtung, du könntest verrecken)
         </button>
-        <button className="category-button">Wahrheit</button>
-        <button className="category-button">Pflicht</button>
-        <button className="category-button">Sexy</button>
+        <button
+          className="category-button"
+          onClick={() => handleCategoryButtonClick("Wahrheit")}
+        >
+          Wahrheit
+        </button>
+        <button
+          className="category-button"
+          onClick={() => handleCategoryButtonClick("Pflicht")}
+        >
+          Pflicht
+        </button>
+        <button
+          className="category-button"
+          onClick={() => handleCategoryButtonClick("Sexy")}
+        >
+          Sexy
+        </button>
         <button className="settings-btn">Menü</button>
         <button className="back-to-home" onClick={handleBackToHomeButtonClick}>
           End Game
