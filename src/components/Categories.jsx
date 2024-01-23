@@ -59,7 +59,7 @@ function Categories() {
         </button>
         <button className="settings-btn">Menü</button>
         <button className="back-to-home" onClick={handleBackToHomeButtonClick}>
-          End Game
+          Spiel beenden
         </button>
       </section>
     </div>

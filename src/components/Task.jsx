@@ -1,7 +1,7 @@
 // Task.jsx
 
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "../styles/Task.css";
 import drinkTasks from "../data/drink-tasks";
 import drinkHardTasks from "../data/drink-hard-tasks";
@@ -16,6 +16,8 @@ function Task() {
   const category = location.state && location.state.category;
 
   const [currentTask, setCurrentTask] = useState(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getRandomTask = () => {
@@ -56,6 +58,10 @@ function Task() {
     getRandomTask();
   }, [category]);
 
+  const handleBackToHomeButtonClick = () => {
+    navigate("/");
+  };
+
   return (
     <div>
       <div className="task-counter-container">
@@ -69,7 +75,9 @@ function Task() {
       <button className="settings-btn">Menü</button>
       <button className="reroll-task">Aufgabe überspringen</button>
       <div className="reroll-counter">3</div>
-      <button className="finish-game">Spiel beenden</button>
+      <button className="back-to-home" onClick={handleBackToHomeButtonClick}>
+          Spiel beenden
+        </button>
     </div>
   );
 }
