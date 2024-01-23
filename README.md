@@ -27,3 +27,5 @@
 - feature/players-settings
 - feature/task
 - main
+
+## Ideas for Tasks
