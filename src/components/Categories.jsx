@@ -7,6 +7,7 @@ function Categories() {
   const navigate = useNavigate();
   const location = useLocation();
   const randomPlayer = location.state && location.state.randomPlayer;
+  const categories = location.state && location.state.categories;
 
   const handleBackToHomeButtonClick = () => {
     navigate("/");
@@ -21,42 +22,15 @@ function Categories() {
       <h3>Du bist dran</h3>
       {randomPlayer && <h1>{randomPlayer}</h1>}
       <section>
-        <button
-          className="category-button"
-          onClick={() => handleCategoryButtonClick("Saufen")}
-        >
-          Saufen
-        </button>
-        <button
-          className="category-button"
-          onClick={() => handleCategoryButtonClick("Hart Saufen")}
-        >
-          Hart Saufen
-        </button>
-        <button
-          className="category-button"
-          onClick={() => handleCategoryButtonClick("Exen")}
-        >
-          Exen
-        </button>
-        <button
-          className="category-button"
-          onClick={() => handleCategoryButtonClick("Wahrheit")}
-        >
-          Wahrheit
-        </button>
-        <button
-          className="category-button"
-          onClick={() => handleCategoryButtonClick("Pflicht")}
-        >
-          Pflicht
-        </button>
-        <button
-          className="category-button"
-          onClick={() => handleCategoryButtonClick("Sexy")}
-        >
-          Sexy
-        </button>
+        {categories.map((category) => (
+          <button
+            key={category}
+            className="category-button"
+            onClick={() => handleCategoryButtonClick(category)}
+          >
+            {category}
+          </button>
+        ))}
         <button className="settings-btn">Menü</button>
         <button className="back-to-home" onClick={handleBackToHomeButtonClick}>
           Spiel beenden

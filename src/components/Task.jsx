@@ -9,6 +9,7 @@ import finishDrinkTasks from "../data/finish-drink-tasks";
 import truthTasks from "../data/truth-tasks";
 import dareTasks from "../data/dare-tasks";
 import sexyTasks from "../data/sexy-tasks";
+import drinkDriver from "../data/drink-driver";
 
 function Task() {
   const location = useLocation();
@@ -41,6 +42,9 @@ function Task() {
           break;
         case "Sexy":
           tasksForCategory = sexyTasks;
+          break;
+        case "Lass andere saufen":
+          tasksForCategory = drinkDriver;
           break;
         // Hier weitere Cases für andere Kategorien hinzufügen
 
@@ -76,8 +80,8 @@ function Task() {
       <button className="reroll-task">Aufgabe überspringen</button>
       <div className="reroll-counter">3</div>
       <button className="back-to-home" onClick={handleBackToHomeButtonClick}>
-          Spiel beenden
-        </button>
+        Spiel beenden
+      </button>
     </div>
   );
 }

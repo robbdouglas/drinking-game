@@ -34,8 +34,15 @@ function PlayerSettings() {
       const randomPlayer =
         allPlayers[Math.floor(Math.random() * allPlayers.length)];
 
+      // Unterscheide zwischen Trinkern und Nicht-Trinkern
+      const categories = drinkerInputs.includes(randomPlayer)
+        ? ["Saufen", "Hart Saufen", "Exen", "Wahrheit", "Pflicht", "Sexy"]
+        : ["Wahrheit", "Pflicht", "Sexy", "Lass andere saufen"];
+
       // Hier kannst du zusätzliche Logik hinzufügen, bevor zur PlayerSettings-Seite navigiert wird
-      navigate("/categories", { state: { randomPlayer: randomPlayer.value } });
+      navigate("/categories", {
+        state: { randomPlayer: randomPlayer.value, categories },
+      });
     }
   };
 
