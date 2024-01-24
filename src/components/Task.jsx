@@ -17,53 +17,61 @@ function Task() {
   const category = location.state && location.state.category;
 
   const [currentTask, setCurrentTask] = useState(null);
+  const [rerollCounter, setRerollCounter] = useState(3); // Initialwert auf 3 setzen
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    const getRandomTask = () => {
-      let tasksForCategory = [];
-
-      switch (category) {
-        case "Saufen":
-          tasksForCategory = drinkTasks;
-          break;
-        case "Hart Saufen":
-          tasksForCategory = drinkHardTasks;
-          break;
-        case "Exen":
-          tasksForCategory = finishDrinkTasks;
-          break;
-        case "Wahrheit":
-          tasksForCategory = truthTasks;
-          break;
-        case "Pflicht":
-          tasksForCategory = dareTasks;
-          break;
-        case "Sexy":
-          tasksForCategory = sexyTasks;
-          break;
-        case "Lass andere saufen":
-          tasksForCategory = drinkDriver;
-          break;
-        // Hier weitere Cases für andere Kategorien hinzufügen
-
-        default:
-          // Standardfall: Verwende den Saufen-Pool
-          tasksForCategory = drinkTasks;
-      }
-
-      const randomIndex = Math.floor(Math.random() * tasksForCategory.length);
-      const selectedTask = tasksForCategory[randomIndex];
-
-      setCurrentTask(selectedTask);
-    };
-
     getRandomTask();
-  }, [category]);
+  }, [category]); // Bei Änderungen der Kategorie eine neue Aufgabe ziehen
+
+  const getRandomTask = () => {
+    let tasksForCategory = [];
+
+    switch (category) {
+      case "Saufen":
+        tasksForCategory = drinkTasks;
+        break;
+      case "Hart Saufen":
+        tasksForCategory = drinkHardTasks;
+        break;
+      case "Exen":
+        tasksForCategory = finishDrinkTasks;
+        break;
+      case "Wahrheit":
+        tasksForCategory = truthTasks;
+        break;
+      case "Pflicht":
+        tasksForCategory = dareTasks;
+        break;
+      case "Sexy":
+        tasksForCategory = sexyTasks;
+        break;
+      case "Lass andere saufen":
+        tasksForCategory = drinkDriver;
+        break;
+      // Hier weitere Cases für andere Kategorien hinzufügen
+
+      default:
+        // Standardfall: Verwende den Saufen-Pool
+        tasksForCategory = drinkTasks;
+    }
+
+    const randomIndex = Math.floor(Math.random() * tasksForCategory.length);
+    const selectedTask = tasksForCategory[randomIndex];
+
+    setCurrentTask(selectedTask);
+  };
 
   const handleBackToHomeButtonClick = () => {
     navigate("/");
+  };
+
+  const handleRerollButtonClick = () => {
+    if (rerollCounter > 0) {
+      setRerollCounter(rerollCounter - 1);
+      getRandomTask();
+    }
   };
 
   return (
@@ -77,8 +85,14 @@ function Task() {
         Aufgabe gemeistert, weiter geht's!
       </button>
       <button className="settings-btn">Menü</button>
-      <button className="reroll-task">Aufgabe überspringen</button>
-      <div className="reroll-counter">3</div>
+      <button
+        className="reroll-task"
+        onClick={handleRerollButtonClick}
+        disabled={rerollCounter === 0}
+      >
+        Aufgabe überspringen
+      </button>
+      <div className="reroll-counter">{rerollCounter}</div>
       <button className="back-to-home" onClick={handleBackToHomeButtonClick}>
         Spiel beenden
       </button>
