@@ -3,9 +3,12 @@
 import React, { useState } from "react";
 import "../styles/PlayerSettings.css";
 import { useNavigate } from "react-router-dom";
+import { useAppContext } from "./AppContext";
 
 function PlayerSettings() {
   const navigate = useNavigate();
+  const { setRandomPlayer, setCategories } = useAppContext(); // Nutze den Kontext
+
   const [drinkerInputs, setDrinkerInputs] = useState([]);
   const [nonDrinkerInputs, setNonDrinkerInputs] = useState([]);
   const [maxPlayersReached, setMaxPlayersReached] = useState(true);
@@ -39,10 +42,11 @@ function PlayerSettings() {
         ? ["Saufen", "Hart Saufen", "Exen", "Wahrheit", "Pflicht", "Sexy"]
         : ["Wahrheit", "Pflicht", "Sexy", "Lass andere saufen"];
 
-      // Hier kannst du zusätzliche Logik hinzufügen, bevor zur PlayerSettings-Seite navigiert wird
-      navigate("/categories", {
-        state: { randomPlayer: randomPlayer.value, categories },
-      });
+      // Hier den Kontext aktualisieren
+      setRandomPlayer(randomPlayer.value);
+      setCategories(categories);
+
+      navigate("/categories");
     }
   };
 

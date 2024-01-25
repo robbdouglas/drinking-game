@@ -1,13 +1,13 @@
 // Categories.jsx
 
 import "../styles/Categories.css";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useAppContext } from "./AppContext";
 
 function Categories() {
   const navigate = useNavigate();
-  const location = useLocation();
-  const randomPlayer = location.state && location.state.randomPlayer;
-  const categories = location.state && location.state.categories;
+
+  const { randomPlayer, categories } = useAppContext(); // Nutze den Kontext
 
   const handleBackToHomeButtonClick = () => {
     navigate("/");

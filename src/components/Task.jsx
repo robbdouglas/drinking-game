@@ -1,7 +1,7 @@
 // Task.jsx
 
 import React, { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../styles/Task.css";
 import drinkTasks from "../data/drink-tasks";
 import drinkHardTasks from "../data/drink-hard-tasks";
@@ -10,20 +10,18 @@ import truthTasks from "../data/truth-tasks";
 import dareTasks from "../data/dare-tasks";
 import sexyTasks from "../data/sexy-tasks";
 import drinkDriver from "../data/drink-driver";
+import { useAppContext } from "./AppContext";
 
 function Task() {
-  const location = useLocation();
-  const randomPlayer = location.state && location.state.randomPlayer;
-  const category = location.state && location.state.category;
+  const navigate = useNavigate();
+  const { randomPlayer, category } = useAppContext(); // Nutze den Kontext
 
   const [currentTask, setCurrentTask] = useState(null);
-  const [rerollCounter, setRerollCounter] = useState(3); // Initialwert auf 3 setzen
-
-  const navigate = useNavigate();
+  const [rerollCounter, setRerollCounter] = useState(3);
 
   useEffect(() => {
     getRandomTask();
-  }, [category]); // Bei Änderungen der Kategorie eine neue Aufgabe ziehen
+  }, [category]);
 
   const getRandomTask = () => {
     let tasksForCategory = [];
