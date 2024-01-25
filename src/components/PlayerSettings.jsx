@@ -110,55 +110,57 @@ function PlayerSettings() {
     <div>
       <table>
         <thead>
-        <tr>
-          <th>
-            <h2>Trinker</h2>
-          </th>
-          <th>
-            <h2>Nicht-Trinker / Fahrer</h2>
-          </th>
-        </tr>
+          <tr>
+            <th>
+              <h2>Trinker</h2>
+            </th>
+            <th>
+              <h2>Nicht-Trinker / Fahrer</h2>
+            </th>
+          </tr>
         </thead>
-        <tr>
-          <td>
-            <button
-              className="add-drinker-btn"
-              onClick={() => handleAddInput("drinker")}
-            >
-              +
-            </button>
-            {drinkerInputs.map((inputObj) => (
-              <div key={inputObj.id}>
-                {inputObj.input}
-                <button
-                  onClick={() => handleRemoveInput("drinker", inputObj.id)}
-                >
-                  {" "}
-                  -{" "}
-                </button>
-              </div>
-            ))}
-          </td>
-          <td>
-            <button
-              className="add-non-drinker-driver-btn"
-              onClick={() => handleAddInput("nonDrinker")}
-            >
-              +
-            </button>
-            {nonDrinkerInputs.map((inputObj) => (
-              <div key={inputObj.id}>
-                {inputObj.input}
-                <button
-                  onClick={() => handleRemoveInput("nonDrinker", inputObj.id)}
-                >
-                  {" "}
-                  -{" "}
-                </button>
-              </div>
-            ))}
-          </td>
-        </tr>
+        <tbody>
+          <tr>
+            <td>
+              <button
+                className="add-drinker-btn"
+                onClick={() => handleAddInput("drinker")}
+              >
+                +
+              </button>
+              {drinkerInputs.map((inputObj) => (
+                <div key={inputObj.id}>
+                  {inputObj.input}
+                  <button
+                    onClick={() => handleRemoveInput("drinker", inputObj.id)}
+                  >
+                    {" "}
+                    -{" "}
+                  </button>
+                </div>
+              ))}
+            </td>
+            <td>
+              <button
+                className="add-non-drinker-driver-btn"
+                onClick={() => handleAddInput("nonDrinker")}
+              >
+                +
+              </button>
+              {nonDrinkerInputs.map((inputObj) => (
+                <div key={inputObj.id}>
+                  {inputObj.input}
+                  <button
+                    onClick={() => handleRemoveInput("nonDrinker", inputObj.id)}
+                  >
+                    {" "}
+                    -{" "}
+                  </button>
+                </div>
+              ))}
+            </td>
+          </tr>
+        </tbody>
       </table>
       {maxPlayersReached && (
         <p>
