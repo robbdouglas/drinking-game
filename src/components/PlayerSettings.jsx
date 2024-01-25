@@ -109,6 +109,7 @@ function PlayerSettings() {
   return (
     <div>
       <table>
+        <thead>
         <tr>
           <th>
             <h2>Trinker</h2>
@@ -117,6 +118,7 @@ function PlayerSettings() {
             <h2>Nicht-Trinker / Fahrer</h2>
           </th>
         </tr>
+        </thead>
         <tr>
           <td>
             <button
