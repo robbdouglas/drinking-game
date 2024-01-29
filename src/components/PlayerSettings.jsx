@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import "../styles/PlayerSettings.css";
 import { useNavigate } from "react-router-dom";
 import { useAppContext } from "./AppContext";
+import { getRandomPlayer } from "../utils/game";
 
 function PlayerSettings() {
   const navigate = useNavigate();
@@ -12,7 +13,6 @@ function PlayerSettings() {
     setCategories,
     setAllPlayers,
     allPlayers,
-    getRandomPlayer,
   } = useAppContext(); // Nutze den Kontext
 
   console.log(useAppContext());

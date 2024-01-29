@@ -11,6 +11,7 @@ import dareTasks from "../data/dare-tasks";
 import sexyTasks from "../data/sexy-tasks";
 import drinkDriver from "../data/drink-driver";
 import { useAppContext } from "./AppContext";
+import { getRandomPlayer } from "../utils/game";
 
 function Task() {
   const navigate = useNavigate();
@@ -18,7 +19,6 @@ function Task() {
     randomPlayer,
     category,
     setRandomPlayer,
-    getRandomPlayer,
     setAllPlayers,
     allPlayers,
     setCategories,
