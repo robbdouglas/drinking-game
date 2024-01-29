@@ -4,16 +4,12 @@ import React, { useState } from "react";
 import "../styles/PlayerSettings.css";
 import { useNavigate } from "react-router-dom";
 import { useAppContext } from "./AppContext";
-import { getRandomPlayer } from "../utils/game";
+import { getPlayerCategories, getRandomPlayer } from "../utils/game";
 
 function PlayerSettings() {
   const navigate = useNavigate();
-  const {
-    setRandomPlayer,
-    setCategories,
-    setAllPlayers,
-    allPlayers,
-  } = useAppContext(); // Nutze den Kontext
+  const { setRandomPlayer, setCategories, setAllPlayers, allPlayers } =
+    useAppContext(); // Nutze den Kontext
 
   console.log(useAppContext());
 
@@ -48,9 +44,8 @@ function PlayerSettings() {
       console.log(randomPlayer);
 
       // Unterscheide zwischen Trinkern und Nicht-Trinkern
-      const categories = drinkerInputs.includes(randomPlayer)
-        ? ["Saufen", "Hart Saufen", "Exen", "Wahrheit", "Pflicht", "Sexy"]
-        : ["Wahrheit", "Pflicht", "Sexy", "Lass andere saufen"];
+
+      const categories = getPlayerCategories(randomPlayer, drinkerInputs);
 
       // Hier den Kontext aktualisieren
       setRandomPlayer(randomPlayer.value);
