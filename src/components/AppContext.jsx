@@ -37,6 +37,11 @@ export const AppProvider = ({ children }) => {
     setAppState((prevState) => ({ ...prevState, allPlayers }));
   };
 
+  const getRandomPlayer = (newAllPlayers) => {
+    // const { allPlayers } = appState;
+    return newAllPlayers[Math.floor(Math.random() * newAllPlayers.length)];
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -45,6 +50,7 @@ export const AppProvider = ({ children }) => {
         setCategories,
         setCategory,
         setAllPlayers,
+        getRandomPlayer,
       }}
     >
       {children}

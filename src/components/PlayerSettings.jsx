@@ -7,8 +7,13 @@ import { useAppContext } from "./AppContext";
 
 function PlayerSettings() {
   const navigate = useNavigate();
-  const { setRandomPlayer, setCategories, setAllPlayers, allPlayers } =
-    useAppContext(); // Nutze den Kontext
+  const {
+    setRandomPlayer,
+    setCategories,
+    setAllPlayers,
+    allPlayers,
+    getRandomPlayer,
+  } = useAppContext(); // Nutze den Kontext
 
   console.log(useAppContext());
 
@@ -36,10 +41,9 @@ function PlayerSettings() {
       setMaxPlayersReached(true);
     } else {
       const newAllPlayers = [...drinkerInputs, ...nonDrinkerInputs];
+      const randomPlayer = getRandomPlayer(newAllPlayers);
       // Zufälligen Spieler auswählen
       setAllPlayers(newAllPlayers);
-      const randomPlayer =
-        newAllPlayers[Math.floor(Math.random() * allPlayers.length)];
       console.log(allPlayers);
       console.log(randomPlayer);
 
