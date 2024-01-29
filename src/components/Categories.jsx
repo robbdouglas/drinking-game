@@ -7,14 +7,15 @@ import { useAppContext } from "./AppContext";
 function Categories() {
   const navigate = useNavigate();
 
-  const { randomPlayer, categories } = useAppContext(); // Nutze den Kontext
+  const { randomPlayer, categories, setCategory } = useAppContext(); // Nutze den Kontext
 
   const handleBackToHomeButtonClick = () => {
     navigate("/");
   };
 
   const handleCategoryButtonClick = (category) => {
-    navigate("/task", { state: { randomPlayer, category } });
+    setCategory(category);
+    navigate("/task");
   };
 
   return (

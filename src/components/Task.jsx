@@ -23,6 +23,8 @@ function Task() {
     getRandomTask();
   }, [category]);
 
+  console.log(category);
+
   const getRandomTask = () => {
     let tasksForCategory = [];
 

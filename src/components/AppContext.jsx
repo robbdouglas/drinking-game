@@ -15,6 +15,7 @@ export const AppProvider = ({ children }) => {
       "Wahrheit",
       "Pflicht",
       "Sexy",
+      "Lass andere saufen",
     ],
     category: null,
   });
