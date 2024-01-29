@@ -1,5 +1,6 @@
 // AppContext.jsx
 import React, { createContext, useContext, useState } from "react";
+import { allCategories } from "../data/categories";
 
 const AppContext = createContext();
 
@@ -9,15 +10,7 @@ export const AppProvider = ({ children }) => {
   const [appState, setAppState] = useState({
     allPlayers: [],
     randomPlayer: null,
-    categories: [
-      "Saufen",
-      "Hart Saufen",
-      "Exen",
-      "Wahrheit",
-      "Pflicht",
-      "Sexy",
-      "Lass andere saufen",
-    ],
+    categories: allCategories,
     category: null,
   });
 
@@ -36,8 +29,6 @@ export const AppProvider = ({ children }) => {
   const setAllPlayers = (allPlayers) => {
     setAppState((prevState) => ({ ...prevState, allPlayers }));
   };
-
- 
 
   return (
     <AppContext.Provider
