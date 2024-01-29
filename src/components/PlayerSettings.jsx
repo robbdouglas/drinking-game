@@ -7,7 +7,10 @@ import { useAppContext } from "./AppContext";
 
 function PlayerSettings() {
   const navigate = useNavigate();
-  const { setRandomPlayer, setCategories } = useAppContext(); // Nutze den Kontext
+  const { setRandomPlayer, setCategories, setAllPlayers, allPlayers } =
+    useAppContext(); // Nutze den Kontext
+
+  console.log(useAppContext());
 
   const [drinkerInputs, setDrinkerInputs] = useState([]);
   const [nonDrinkerInputs, setNonDrinkerInputs] = useState([]);
@@ -32,10 +35,13 @@ function PlayerSettings() {
     if (!hasInputs || !allFieldsFilled) {
       setMaxPlayersReached(true);
     } else {
+      const newAllPlayers = [...drinkerInputs, ...nonDrinkerInputs];
       // Zufälligen Spieler auswählen
-      const allPlayers = [...drinkerInputs, ...nonDrinkerInputs];
+      setAllPlayers(newAllPlayers);
       const randomPlayer =
-        allPlayers[Math.floor(Math.random() * allPlayers.length)];
+        newAllPlayers[Math.floor(Math.random() * allPlayers.length)];
+      console.log(allPlayers);
+      console.log(randomPlayer);
 
       // Unterscheide zwischen Trinkern und Nicht-Trinkern
       const categories = drinkerInputs.includes(randomPlayer)

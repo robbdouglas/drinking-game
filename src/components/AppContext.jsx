@@ -7,6 +7,7 @@ export const useAppContext = () => useContext(AppContext);
 
 export const AppProvider = ({ children }) => {
   const [appState, setAppState] = useState({
+    allPlayers: [],
     randomPlayer: null,
     categories: [
       "Saufen",
@@ -32,9 +33,19 @@ export const AppProvider = ({ children }) => {
     setAppState((prevState) => ({ ...prevState, category }));
   };
 
+  const setAllPlayers = (allPlayers) => {
+    setAppState((prevState) => ({ ...prevState, allPlayers }));
+  };
+
   return (
     <AppContext.Provider
-      value={{ ...appState, setRandomPlayer, setCategories, setCategory }}
+      value={{
+        ...appState,
+        setRandomPlayer,
+        setCategories,
+        setCategory,
+        setAllPlayers,
+      }}
     >
       {children}
     </AppContext.Provider>

@@ -75,7 +75,10 @@ function Task() {
   };
 
   const handleTaskCompletedButtonClick = () => {
-    navigate("/categories");
+    // Zufälligen Spieler auswählen:
+    const newRandomPlayer = undefined;    
+    setRandomPlayer(newRandomPlayer);
+        navigate("/categories");
   };
 
   return (
