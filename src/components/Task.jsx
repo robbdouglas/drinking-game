@@ -14,7 +14,16 @@ import { useAppContext } from "./AppContext";
 
 function Task() {
   const navigate = useNavigate();
-  const { randomPlayer, category, setRandomPlayer } = useAppContext();
+  const {
+    randomPlayer,
+    category,
+    setRandomPlayer,
+    getRandomPlayer,
+    setAllPlayers,
+    allPlayers,
+    setCategories,
+    setCategory,
+  } = useAppContext();
 
   const [currentTask, setCurrentTask] = useState(null);
   const [rerollCounter, setRerollCounter] = useState(3);
@@ -75,10 +84,11 @@ function Task() {
   };
 
   const handleTaskCompletedButtonClick = () => {
-    // Zufälligen Spieler auswählen:
-    const newRandomPlayer = undefined;    
-    setRandomPlayer(newRandomPlayer);
-        navigate("/categories");
+    const newAllPlayers = [...allPlayers];
+    const newRandomPlayer = getRandomPlayer(newAllPlayers);
+    setRandomPlayer(newRandomPlayer.value);
+
+    navigate("/categories");
   };
 
   return (
