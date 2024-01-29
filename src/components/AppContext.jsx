@@ -1,3 +1,4 @@
+// AppContext.jsx
 import React, { createContext, useContext, useState } from "react";
 
 const AppContext = createContext();
@@ -7,7 +8,14 @@ export const useAppContext = () => useContext(AppContext);
 export const AppProvider = ({ children }) => {
   const [appState, setAppState] = useState({
     randomPlayer: null,
-    categories: null,
+    categories: [
+      "Saufen",
+      "Hart Saufen",
+      "Exen",
+      "Wahrheit",
+      "Pflicht",
+      "Sexy",
+    ],
     category: null,
   });
 

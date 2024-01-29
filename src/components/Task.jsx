@@ -14,7 +14,7 @@ import { useAppContext } from "./AppContext";
 
 function Task() {
   const navigate = useNavigate();
-  const { randomPlayer, category } = useAppContext(); // Nutze den Kontext
+  const { randomPlayer, category, setRandomPlayer } = useAppContext();
 
   const [currentTask, setCurrentTask] = useState(null);
   const [rerollCounter, setRerollCounter] = useState(3);
@@ -72,6 +72,10 @@ function Task() {
     }
   };
 
+  const handleTaskCompletedButtonClick = () => {
+    navigate("/categories");
+  };
+
   return (
     <div>
       <div className="task-counter-container">
@@ -79,7 +83,10 @@ function Task() {
       </div>
       <p className="task">{randomPlayer}</p>
       <p className="task">{currentTask && currentTask.text}</p>
-      <button className="task-completed-btn">
+      <button
+        className="task-completed-btn"
+        onClick={handleTaskCompletedButtonClick}
+      >
         Aufgabe gemeistert, weiter geht's!
       </button>
       <button className="settings-btn">Menü</button>

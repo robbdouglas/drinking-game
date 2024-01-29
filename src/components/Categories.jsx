@@ -22,15 +22,16 @@ function Categories() {
       <h3>Du bist dran</h3>
       {randomPlayer && <h1>{randomPlayer}</h1>}
       <section>
-        {categories.map((category) => (
-          <button
-            key={category}
-            className="category-button"
-            onClick={() => handleCategoryButtonClick(category)}
-          >
-            {category}
-          </button>
-        ))}
+        {categories &&
+          categories.map((category) => (
+            <button
+              key={category}
+              className="category-button"
+              onClick={() => handleCategoryButtonClick(category)}
+            >
+              {category}
+            </button>
+          ))}
         <button className="settings-btn">Menü</button>
         <button className="back-to-home" onClick={handleBackToHomeButtonClick}>
           Spiel beenden
