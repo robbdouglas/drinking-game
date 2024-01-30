@@ -8,13 +8,19 @@ import { getPlayerCategories, getRandomPlayer } from "../utils/game";
 
 function PlayerSettings() {
   const navigate = useNavigate();
-  const { setRandomPlayer, setCategories, setAllPlayers, allPlayers } =
-    useAppContext(); // Nutze den Kontext
+  const {
+    setRandomPlayer,
+    setCategories,
+    setAllPlayers,
+    allPlayers,
+    drinkerInputs,
+    nonDrinkerInputs,
+    setDrinkerInputs,
+    setNonDrinkerInputs,
+  } = useAppContext(); // Nutze den Kontext
 
   console.log(useAppContext());
 
-  const [drinkerInputs, setDrinkerInputs] = useState([]);
-  const [nonDrinkerInputs, setNonDrinkerInputs] = useState([]);
   const [maxPlayersReached, setMaxPlayersReached] = useState(true);
   const [showMaxPlayersMessage, setShowMaxPlayersMessage] = useState(false);
 
@@ -114,6 +120,8 @@ function PlayerSettings() {
       setShowMaxPlayersMessage(false);
     }
   };
+
+  console.log(drinkerInputs);
 
   return (
     <div>

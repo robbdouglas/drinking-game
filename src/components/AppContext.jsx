@@ -12,6 +12,8 @@ export const AppProvider = ({ children }) => {
     randomPlayer: null,
     categories: allCategories,
     category: null,
+    drinkerInputs: [],
+    nonDrinkerInputs: [],
   });
 
   const setRandomPlayer = (randomPlayer) => {
@@ -30,6 +32,14 @@ export const AppProvider = ({ children }) => {
     setAppState((prevState) => ({ ...prevState, allPlayers }));
   };
 
+  const setDrinkerInputs = (drinkerInputs) => {
+    setAppState((prevState) => ({ ...prevState, drinkerInputs }));
+  };
+
+  const setNonDrinkerInputs = (nonDrinkerInputs) => {
+    setAppState((prevState) => ({ ...prevState, nonDrinkerInputs }));
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -38,6 +48,8 @@ export const AppProvider = ({ children }) => {
         setCategories,
         setCategory,
         setAllPlayers,
+        setDrinkerInputs,
+        setNonDrinkerInputs,
       }}
     >
       {children}
