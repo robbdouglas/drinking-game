@@ -1,3 +1,5 @@
+// categories.js
+
 export const drinkerCategories = [
   "Saufen",
   "Hart Saufen",

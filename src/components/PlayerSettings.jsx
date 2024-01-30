@@ -77,33 +77,38 @@ function PlayerSettings() {
     }
   };
 
-  const handleAddInput = (inputType) => {
-    const setInputs =
-      inputType === "drinker" ? setDrinkerInputs : setNonDrinkerInputs;
+  // const handleAddInput = (inputType) => {
+  //   console.log("drinkerInputs:", drinkerInputs);
+  //   console.log("nonDrinkerInputs:", nonDrinkerInputs);
+  //   const setInputs =
+  //     inputType === "drinker"
+  //       ? setDrinkerInputs(drinkerInputs)
+  //       : setNonDrinkerInputs(nonDrinkerInputs);
 
-    if (drinkerInputs.length + nonDrinkerInputs.length < 8) {
-      setInputs((prevInputs) => [
-        ...prevInputs,
-        {
-          id: prevInputs.length,
-          input: (
-            <input
-              key={prevInputs.length}
-              type="text"
-              placeholder="Gib deinen Namen ein..."
-              onChange={(e) =>
-                handleInputChange(inputType, prevInputs.length, e.target.value)
-              }
-            />
-          ),
-          value: "", // Initialer Wert ist leer
-        },
-      ]);
-    } else {
-      setMaxPlayersReached(true);
-      setShowMaxPlayersMessage(true);
-    }
-  };
+  //   if (drinkerInputs.length + nonDrinkerInputs.length < 8) {
+  //     console.log("setInputs:", setInputs);
+  //     setInputs((prevInputs) => [
+  //       ...prevInputs,
+  //       {
+  //         id: prevInputs.length,
+  //         input: (
+  //           <input
+  //             key={prevInputs.length}
+  //             type="text"
+  //             placeholder="Gib deinen Namen ein..."
+  //             onChange={(e) =>
+  //               handleInputChange(inputType, prevInputs.length, e.target.value)
+  //             }
+  //           />
+  //         ),
+  //         value: "", // Initialer Wert ist leer
+  //       },
+  //     ]);
+  //   } else {
+  //     setMaxPlayersReached(true);
+  //     setShowMaxPlayersMessage(true);
+  //   }
+  // };
 
   const handleRemoveInput = (inputType, id) => {
     const setInputs =
@@ -147,7 +152,18 @@ function PlayerSettings() {
               </button>
               {drinkerInputs.map((inputObj) => (
                 <div key={inputObj.id}>
-                  {inputObj.input}
+                  <input
+                    key={prevInputs.length}
+                    type="text"
+                    placeholder="Gib deinen Namen ein..."
+                    onChange={(e) =>
+                      handleInputChange(
+                        inputType,
+                        prevInputs.length,
+                        e.target.value
+                      )
+                    }
+                  />
                   <button
                     onClick={() => handleRemoveInput("drinker", inputObj.id)}
                   >

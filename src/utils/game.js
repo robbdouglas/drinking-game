@@ -1,3 +1,5 @@
+// game.js
+
 import { drinkerCategories, nonDrinkerCategories } from "../data/categories";
 
 export const getRandomPlayer = (newAllPlayers) => {
