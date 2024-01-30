@@ -2,15 +2,15 @@
 
 ## Description / Rules (GER)
 
-Horrido, ihr suffelwütigen Knallerbsen!
-Seid ihr euch sicher, dass ihr dieses gefährliche Spiel spielen wollt, so klickt auf den "Start" Button!
-Überlegt anschließend, ob ihr während des Spiels Alkohol trinken möchtet oder nicht oder ob ihr sogar der arme Fahrer seid (RIP).
-Um einen neuen Spieler hinzuzufügen, klickt jeweils auf den "+" Button und tragt eure Namen ein!
-Anschließend wird per Zufall ausgelost, wer von euch eine Aufgabe bewältigen muss.
-Der aktive Spieler muss sich nun für eine Kategorie entscheiden.
-Gut für Nicht-Trinker: Ihr dürft gern dennoch die Kategorien wählen, in denen getrunken wird. Hier bekommt ihr allerdings Aufgaben, die ihr lösen müsst, um Schlücke an Mitspieler zu verteilen!
-Erfüllt dann die Anforderungen der Aufgabe und klickt auf den "Aufgabe gemeistert" Button, wenn ihr damit fertig seid.
-Habt ihr keine Lust auf eine bestimmte Aufgabe, habt ihr insgesamt drei Joker, die es euch erlauben, eine Aufgabe zu überspringen.
+Horrido, ihr suffelwütigen Knallerbsen! <br>
+Seid ihr euch sicher, dass ihr dieses gefährliche Spiel spielen wollt, so klickt auf den "Start" Button! <br>
+Überlegt anschließend, ob ihr während des Spiels Alkohol trinken möchtet oder nicht oder ob ihr sogar der arme Fahrer seid (RIP). <br>
+Um einen neuen Spieler hinzuzufügen, klickt jeweils auf den "+" Button und tragt eure Namen ein! <br>
+Anschließend wird per Zufall ausgelost, wer von euch eine Aufgabe bewältigen muss. <br>
+Der aktive Spieler muss sich nun für eine Kategorie entscheiden. <br>
+Gut für Nicht-Trinker: Ihr dürft gern dennoch die Kategorien wählen, in denen getrunken wird. <br> Hier bekommt ihr allerdings Aufgaben, die ihr lösen müsst, um Schlücke an Mitspieler zu verteilen! <br>
+Erfüllt dann die Anforderungen der Aufgabe und klickt auf den "Aufgabe gemeistert" Button, wenn ihr damit fertig seid. <br>
+Habt ihr keine Lust auf eine bestimmte Aufgabe, habt ihr insgesamt drei Joker, die es euch erlauben, eine Aufgabe zu überspringen. <br>
 Nach genau 30 Aufgaben ist das Spiel beendet und ihr seid vermutlich betrunkener als vorher!
 
 ____
